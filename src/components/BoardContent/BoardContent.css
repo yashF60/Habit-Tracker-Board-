@@ -1,0 +1,43 @@
+.main-board-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  padding: 30px;
+  border: 1px solid #242f40;
+}
+
+.content-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* .content-add {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border: 1px solid #cca43b;
+  padding: 10px;
+  width: 250px;
+  height: 50px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 17px;
+} */
+
+.content-add {
+  background-color: #cca43b;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}

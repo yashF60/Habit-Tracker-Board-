@@ -1,0 +1,59 @@
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 30px;
+  background-color: #363636;
+  color: white;
+  height: 80px;
+}
+
+.left-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.board {
+  background-color: #cca43b;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.right-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.filter {
+  background-color: #cca43b;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.header-input input {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  width: 200px;
+}
