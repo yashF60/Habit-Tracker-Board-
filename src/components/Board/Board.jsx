@@ -23,9 +23,9 @@ const Board = ({ id, title }) => {
 
   return (
     <>
-      <div className="main-board">
+      <div onClick={toggleContent} className="main-board">
         <div className="board-left">
-          <div onClick={toggleContent} className="board-switch">
+          <div className="board-switch">
             <MdKeyboardArrowRight
               className={`arrow-icon ${clicked ? "rotate-down" : ""}`}
             />
