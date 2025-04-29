@@ -1,21 +1,31 @@
 import React, { useState, forwardRef } from "react";
 import "./AddBoardModal.css";
 
+import { CiWarning } from "react-icons/ci";
+
 import { useModalBoardContext } from "../../context/ModalBoardContext";
 
 const AddBoardModal = forwardRef((props, ref) => {
   const [title, setTitle] = useState("");
+  const [warning, setWarning] = useState(false);
   const { closeModal, addBoard } = useModalBoardContext();
 
   const handleModalClose = () => {
     closeModal();
+    setTitle("");
+    setWarning(false);
   };
 
   const handleSave = (e) => {
     e.preventDefault();
-    console.log("Save button clicked");
-    addBoard(title);
+    if (!title.trim()) {
+      setWarning(true);
+      return;
+    }
+
+    addBoard(title.trim());
     setTitle("");
+    setWarning(false);
     closeModal();
   };
 
@@ -29,9 +39,19 @@ const AddBoardModal = forwardRef((props, ref) => {
             placeholder="Enter a title"
             value={title}
             maxLength={20}
-            onChange={(e) => setTitle(e.target.value)}
+            onChange={(e) => {
+              setTitle(e.target.value);
+              if (warning && e.target.value.trim()) {
+                setWarning(false);
+              }
+            }}
             ref={ref}
           />
+          {warning && (
+            <p className="warning">
+              <CiWarning /> Please add a Title
+            </p>
+          )}
         </div>
         <div className="add-board-btns">
           <button type="submit">Save</button>

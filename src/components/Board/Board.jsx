@@ -8,8 +8,8 @@ import { MdDeleteOutline } from "react-icons/md";
 import { useModalBoardContext } from "../../context/ModalBoardContext";
 import BoardContent from "../BoardContent/BoardContent";
 
-const Board = ({ id, title }) => {
-  const { removeBoard } = useModalBoardContext();
+const Board = ({ id, title, important }) => {
+  const { removeBoard, markBoardAsImportant } = useModalBoardContext();
 
   const [clicked, setClicked] = useState(false);
 
@@ -33,7 +33,13 @@ const Board = ({ id, title }) => {
           <div className="board-title">{title}</div>
         </div>
         <div className="board-right">
-          <button>
+          <button
+            className={`important-btn ${important ? "important-active" : ""}`}
+            onClick={(e) => {
+              e.stopPropagation();
+              markBoardAsImportant(id);
+            }}
+          >
             <MdLabelImportantOutline />
           </button>
           <button onClick={handleDeleteBoard}>

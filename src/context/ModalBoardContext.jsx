@@ -54,6 +54,19 @@ export const ModalBoardProvider = ({ children }) => {
     console.log("test function called");
   };
 
+  // Function to mark the board as important
+  const markBoardAsImportant = (id) => {
+    setBoards((prevBoards) => {
+      const boardIndex = prevBoards.findIndex((board) => board.id === id);
+      if (boardIndex === -1) return prevBoards;
+
+      const boardToMove = prevBoards[boardIndex];
+      const updatedBoards = [...prevBoards];
+      updatedBoards.splice(boardIndex, 1); // remove it
+      return [boardToMove, ...updatedBoards]; // move to top
+    });
+  };
+
   return (
     <ModalBoardContext.Provider
       value={{
@@ -67,6 +80,7 @@ export const ModalBoardProvider = ({ children }) => {
         isColumnModalOpen,
         openColumnModal,
         closeColumnModal,
+        markBoardAsImportant,
         //test
         test,
       }}

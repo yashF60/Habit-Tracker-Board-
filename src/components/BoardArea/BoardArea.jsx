@@ -18,7 +18,12 @@ const BoardArea = () => {
         </div>
       ) : (
         boards.map((board) => (
-          <Board key={board.id} id={board.id} title={board.title} />
+          <Board
+            key={board.id}
+            id={board.id}
+            title={board.title}
+            important={board.important}
+          />
         ))
       )}
     </div>
