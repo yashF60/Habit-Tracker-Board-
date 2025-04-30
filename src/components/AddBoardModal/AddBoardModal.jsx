@@ -22,7 +22,6 @@ const AddBoardModal = forwardRef((props, ref) => {
       setWarning(true);
       return;
     }
-
     addBoard(title.trim());
     setTitle("");
     setWarning(false);
@@ -49,7 +48,7 @@ const AddBoardModal = forwardRef((props, ref) => {
           />
           {warning && (
             <p className="warning">
-              <CiWarning /> Please add a Title
+              <CiWarning /> Please add Board Title
             </p>
           )}
         </div>

@@ -25,7 +25,7 @@ const BoardContent = () => {
       </div>
       <div className="content-body">
         {/* render dynamic cards here */}
-        Yash
+        <p>No Columns to show</p>
       </div>
       {isColumnModalOpen ? <AddColumnModal ref={addColumnRef} /> : null}
     </div>
