@@ -1,5 +1,5 @@
 import React from "react";
-import "./CardContainer.css"
+import "./CardContainer.css";
 import { useDroppable } from "@dnd-kit/core";
 import {
   SortableContext,
@@ -7,6 +7,8 @@ import {
 } from "@dnd-kit/sortable";
 
 import CardItem from "../CardItem/CardItem";
+
+import { MdDeleteOutline } from "react-icons/md";
 
 const containerStyle = {
   width: "320px",
@@ -16,8 +18,8 @@ const containerStyle = {
   borderRadius: "5px",
 };
 
-const CardContainer = ({id, items}) => {
-//   const { id, items } = props;
+const CardContainer = ({ id, items }) => {
+  //   const { id, items } = props;
   const { setNodeRef } = useDroppable({
     id,
   });
@@ -31,7 +33,12 @@ const CardContainer = ({id, items}) => {
       <div className="card-column" ref={setNodeRef} style={containerStyle}>
         <div className="card-head">
           <p>Title</p>
-          <button>Add Card</button>
+          <div className="card-head-btns">
+            <button>Add Card</button>
+            <button>
+              <MdDeleteOutline />
+            </button>
+          </div>
         </div>
         {items.map((id) => (
           <CardItem key={id} id={id} />

@@ -20,4 +20,12 @@
   align-items: center;
   justify-content: center;
   gap: 5px;
+  height: 35px;
+}
+
+.card-head-btns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
