@@ -60,7 +60,6 @@ export default function CardColumns() {
   function handleDragStart(event) {
     const { active } = event;
     const { id } = active;
-
     setActiveId(id);
   }
 
