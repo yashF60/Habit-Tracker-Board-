@@ -16,8 +16,8 @@ const containerStyle = {
   borderRadius: "5px",
 };
 
-const CardContainer = (props) => {
-  const { id, items } = props;
+const CardContainer = ({id, items}) => {
+//   const { id, items } = props;
   const { setNodeRef } = useDroppable({
     id,
   });

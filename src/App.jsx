@@ -3,6 +3,7 @@ import "./App.css";
 import Header from "./components/Header/Header";
 import BoardArea from "./components/BoardArea/BoardArea";
 import { ModalBoardProvider } from "./context/ModalBoardContext";
+import { CardProvider } from "./context/CardContext";
 
 const App = () => {
   return (
