@@ -3,6 +3,7 @@ import "./BoardContent.css";
 
 import { useModalBoardContext } from "../../context/ModalBoardContext";
 import AddColumnModal from "../AddColumnModal/AddColumnModal";
+import CardColumns from "../CardColumns/CardColumns";
 
 const BoardContent = () => {
   const { isColumnModalOpen, openColumnModal } = useModalBoardContext();
@@ -25,7 +26,7 @@ const BoardContent = () => {
       </div>
       <div className="content-body">
         {/* render dynamic cards here */}
-        <p>No Columns to show</p>
+        <CardColumns />
       </div>
       {isColumnModalOpen ? <AddColumnModal ref={addColumnRef} /> : null}
     </div>

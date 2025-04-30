@@ -1,11 +1,13 @@
 .main-board-content {
   display: flex;
-  align-items: center;
+  align-items: start;
   justify-content: center;
   flex-direction: column;
   width: 100%;
   padding: 30px;
   border: 1px solid #242f40;
+  background-color: white;
+  border-radius: 5px;
 }
 
 .content-header {
@@ -26,6 +28,7 @@
   align-items: center;
   justify-content: center;
   gap: 5px;
+  margin: 10px;
 }
 .content-body {
   display: flex;
