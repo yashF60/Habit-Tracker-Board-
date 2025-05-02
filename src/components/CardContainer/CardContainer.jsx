@@ -17,7 +17,7 @@ const containerStyle = {
   height: "min-content",
   background: "#dadada",
   padding: 10,
-  margin: 10,
+  margin: 9,
   borderRadius: "5px",
 };
 
