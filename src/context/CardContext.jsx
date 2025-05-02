@@ -3,6 +3,8 @@ import React, { createContext, useContext, useState } from "react";
 const CardContext = createContext();
 
 export const CardProvider = ({ children }) => {
+  const [isCardModalOpen, setIsCardModalOpen] = useState(false);
+
   const localColumns = () => {
     const savedColumns = localStorage.getItem("columns");
     return savedColumns ? JSON.parse(savedColumns) : [];
@@ -31,9 +33,28 @@ export const CardProvider = ({ children }) => {
     console.log("Deleting column with ID:", id);
   };
 
+  //Function to open the modal
+  const openCardModal = () => {
+    setIsCardModalOpen(true);
+  };
+
+  //Function to close the modal
+  const closeCardModal = () => {
+    setIsCardModalOpen(false);
+  };
+
   return (
     <CardContext.Provider
-      value={{ columns, setColumns, addColumn, removeColumn }}
+      value={{
+        columns,
+        setColumns,
+        addColumn,
+        removeColumn,
+        isCardModalOpen,
+        setIsCardModalOpen,
+        openCardModal,
+        closeCardModal,
+      }}
     >
       {children}
     </CardContext.Provider>

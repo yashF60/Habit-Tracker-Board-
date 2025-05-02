@@ -49,6 +49,9 @@ export const ModalBoardProvider = ({ children }) => {
     setIsColumnModalOpen(false);
   };
 
+  //Function to close on ESC
+  
+
   // Function to test the context
   const test = () => {
     console.log("test function called");

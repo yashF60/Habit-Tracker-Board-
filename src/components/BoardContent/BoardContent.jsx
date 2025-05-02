@@ -21,7 +21,6 @@ const BoardContent = () => {
     }, 0);
   };
 
-
   return (
     <div className="main-board-content">
       <div className="content-header">
@@ -39,11 +38,7 @@ const BoardContent = () => {
           </div>
         ) : (
           columns.map((column) => (
-            <CardColumns
-              title={column.title}
-              key={column.id}
-              id={column.id}
-            />
+            <CardColumns title={column.title} key={column.id} id={column.id} />
           ))
         )}
       </div>
@@ -53,5 +48,3 @@ const BoardContent = () => {
 };
 
 export default BoardContent;
-
-// we have BoardContent in which we have CardColumns in which we have CardContainer and in which we have card itemsEqual, now when i click on the delete button in CardContainer, the CardColumn with that ID must get deleted

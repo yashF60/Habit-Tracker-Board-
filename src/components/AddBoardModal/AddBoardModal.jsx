@@ -1,4 +1,4 @@
-import React, { useState, forwardRef } from "react";
+import React, { useState, forwardRef, useEffect, useCallback } from "react";
 import "./AddBoardModal.css";
 
 import { CiWarning } from "react-icons/ci";
@@ -10,11 +10,12 @@ const AddBoardModal = forwardRef((props, ref) => {
   const [warning, setWarning] = useState(false);
   const { closeModal, addBoard } = useModalBoardContext();
 
-  const handleModalClose = () => {
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const handleModalClose = useCallback(() => {
     closeModal();
     setTitle("");
     setWarning(false);
-  };
+  });
 
   const handleSave = (e) => {
     e.preventDefault();
@@ -27,6 +28,19 @@ const AddBoardModal = forwardRef((props, ref) => {
     setWarning(false);
     closeModal();
   };
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        handleModalClose();
+      }
+    };
+  
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [handleModalClose]);
 
   return (
     <div className="main-add-modal">

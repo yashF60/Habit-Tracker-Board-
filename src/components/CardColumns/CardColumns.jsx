@@ -12,7 +12,8 @@ import {
 import { arrayMove, sortableKeyboardCoordinates } from "@dnd-kit/sortable";
 
 import CardContainer from "../CardContainer/CardContainer";
-import { Item } from "../CardItem/CardItem";
+import CardItem from "../CardItem/CardItem";
+// import { Item } from "../CardItem/CardItem";
 
 const wrapperStyle = {
   display: "flex",
@@ -22,6 +23,7 @@ const wrapperStyle = {
 export default function CardColumns({ id, title }) {
   const [items, setItems] = useState({
     cont1: ["1", "2", "3"],
+    // cont2: ["4", "5", "6"],
   });
   const [activeId, setActiveId] = useState();
 
@@ -41,9 +43,10 @@ export default function CardColumns({ id, title }) {
         onDragOver={handleDragOver}
         onDragEnd={handleDragEnd}
       >
-        {/* <CardContainer id="cont1" items={items.cont1} title={title}/> */}
+        {/* <CardContainer id="cont1" items={items.cont1} title={title}/>
+        <CardContainer id="cont2" items={items.cont2} title={title}/> */}
         <CardContainer id={id} items={items[id] || []} title={title} />
-        <DragOverlay>{activeId ? <Item /> : null}</DragOverlay>
+        <DragOverlay>{activeId ? <CardItem /> : null}</DragOverlay>
       </DndContext>
     </div>
   );

@@ -1,4 +1,5 @@
 import React from "react";
+import "./CardItem.css"
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 
@@ -6,18 +7,7 @@ import { CSS } from "@dnd-kit/utilities";
 export function Item(props) {
   const { id } = props;
 
-  const style = {
-    width: "300px",
-    height: 100,
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    margin: "10px 0",
-    background: "white",
-    cursor: "pointer",
-    borderRadius: "5px",
-  };
-  return <div style={style}>{id}</div>;
+  return <div className="main-card-item">{id}</div>;
 }
 
 const CardItem = (props) => {
@@ -29,7 +19,7 @@ const CardItem = (props) => {
     transition,
   };
   return (
-    <div ref={setNodeRef} style={style} {...attributes} {...listeners}>
+    <div ref={setNodeRef} className="main-card-items" style={style} {...attributes} {...listeners}>
       <Item id={props.id} />
     </div>
   );

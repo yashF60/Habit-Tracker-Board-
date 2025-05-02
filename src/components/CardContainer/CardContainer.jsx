@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import "./CardContainer.css";
 import { useDroppable } from "@dnd-kit/core";
 import {
@@ -11,6 +11,7 @@ import CardItem from "../CardItem/CardItem";
 import { MdDeleteOutline } from "react-icons/md";
 
 import { useCardContext } from "../../context/CardContext";
+import AddCardModal from "../AddCardModal/AddCardModal";
 
 const containerStyle = {
   width: "320px",
@@ -22,10 +23,19 @@ const containerStyle = {
 };
 
 const CardContainer = ({ id, items, title }) => {
-  const { removeColumn } = useCardContext();
+  const { removeColumn, openCardModal, isCardModalOpen } = useCardContext();
   const { setNodeRef } = useDroppable({
     id,
   });
+
+  const addCardRef = useRef(null);
+
+  const handleOpenCardModal = () => {
+    openCardModal();
+    setTimeout(() => {
+      addCardRef.current?.focus();
+    }, 0);
+  };
 
   return (
     <SortableContext
@@ -37,7 +47,7 @@ const CardContainer = ({ id, items, title }) => {
         <div className="card-head">
           <p>{title.toUpperCase()}</p>
           <div className="card-head-btns">
-            <button>Add Card</button>
+            <button onClick={handleOpenCardModal}>Add Card</button>
             <button onClick={() => removeColumn(id)}>
               <MdDeleteOutline />
             </button>
@@ -47,6 +57,7 @@ const CardContainer = ({ id, items, title }) => {
           <CardItem key={id} id={id} />
         ))}
       </div>
+      {isCardModalOpen ? <AddCardModal ref={addCardRef} /> : null}
     </SortableContext>
   );
 };
