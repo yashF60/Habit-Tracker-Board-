@@ -4,11 +4,13 @@ import "./AddColumnModal.css";
 import { CiWarning } from "react-icons/ci";
 
 import { useModalBoardContext } from "../../context/ModalBoardContext";
+import { useCardContext } from "../../context/CardContext";
 
 const AddColumnModal = forwardRef((props, ref) => {
   const [title, setTitle] = useState("");
   const [warning, setWarning] = useState(false);
   const { closeColumnModal } = useModalBoardContext();
+  const { addColumn } = useCardContext();
 
   const handleModalClose = () => {
     closeColumnModal();
@@ -16,9 +18,21 @@ const AddColumnModal = forwardRef((props, ref) => {
     setWarning(false);
   };
 
+  const handleSave = (e) => {
+    e.preventDefault();
+    if (!title.trim()) {
+      setWarning(true);
+      return;
+    }
+    addColumn(title.trim());
+    setTitle("");
+    setWarning(false);
+    closeColumnModal();
+  };
+
   return (
     <div className="main-add-modal">
-      <form action="dialog" className="sub-add-modal">
+      <form onSubmit={handleSave} action="dialog" className="sub-add-modal">
         <h1>Add new Column</h1>
         <div className="add-board-input">
           <input

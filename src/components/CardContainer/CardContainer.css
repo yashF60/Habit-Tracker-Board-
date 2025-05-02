@@ -1,9 +1,3 @@
-.card-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
 .card-head p {
   font-size: 25px;
 }
@@ -28,4 +22,18 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
+}
+
+.card-column {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }

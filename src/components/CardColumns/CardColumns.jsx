@@ -19,10 +19,9 @@ const wrapperStyle = {
   flexDirection: "row",
 };
 
-export default function CardColumns() {
+export default function CardColumns({ title }) {
   const [items, setItems] = useState({
     cont1: ["1", "2", "3"],
-    cont2: ["4", "5", "6"],
   });
   const [activeId, setActiveId] = useState();
 
@@ -42,8 +41,7 @@ export default function CardColumns() {
         onDragOver={handleDragOver}
         onDragEnd={handleDragEnd}
       >
-        <CardContainer id="cont1" items={items.cont1} />
-        <CardContainer id="cont2" items={items.cont2} />
+        <CardContainer id="cont1" items={items.cont1} title={title} />
         <DragOverlay>{activeId ? <Item /> : null}</DragOverlay>
       </DndContext>
     </div>
