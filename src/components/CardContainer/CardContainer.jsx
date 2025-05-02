@@ -23,12 +23,6 @@ const containerStyle = {
 
 const CardContainer = ({ id, items, title }) => {
   const { removeColumn } = useCardContext();
-
-  const handleDeleteColumn = () => {
-    removeColumn(id);
-    console.log("Delete")
-  };
-
   const { setNodeRef } = useDroppable({
     id,
   });
@@ -41,10 +35,10 @@ const CardContainer = ({ id, items, title }) => {
     >
       <div className="card-column" ref={setNodeRef} style={containerStyle}>
         <div className="card-head">
-          <p>{title}</p>
+          <p>{title.toUpperCase()}</p>
           <div className="card-head-btns">
             <button>Add Card</button>
-            <button onClick={handleDeleteColumn}>
+            <button onClick={() => removeColumn(id)}>
               <MdDeleteOutline />
             </button>
           </div>

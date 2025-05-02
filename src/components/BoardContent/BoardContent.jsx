@@ -6,6 +6,8 @@ import { useCardContext } from "../../context/CardContext";
 import AddColumnModal from "../AddColumnModal/AddColumnModal";
 import CardColumns from "../CardColumns/CardColumns";
 
+import { GiPlasticDuck } from "react-icons/gi";
+
 const BoardContent = () => {
   const { isColumnModalOpen, openColumnModal } = useModalBoardContext();
   const { columns } = useCardContext();
@@ -18,6 +20,7 @@ const BoardContent = () => {
       addColumnRef.current?.focus();
     }, 0);
   };
+
 
   return (
     <div className="main-board-content">
@@ -40,7 +43,6 @@ const BoardContent = () => {
               title={column.title}
               key={column.id}
               id={column.id}
-              items={column.items}
             />
           ))
         )}
@@ -51,3 +53,5 @@ const BoardContent = () => {
 };
 
 export default BoardContent;
+
+// we have BoardContent in which we have CardColumns in which we have CardContainer and in which we have card itemsEqual, now when i click on the delete button in CardContainer, the CardColumn with that ID must get deleted

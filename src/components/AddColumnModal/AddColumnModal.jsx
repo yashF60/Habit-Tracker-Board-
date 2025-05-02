@@ -39,7 +39,7 @@ const AddColumnModal = forwardRef((props, ref) => {
             type="text"
             placeholder="Enter a title"
             value={title}
-            maxLength={20}
+            maxLength={15}
             onChange={(e) => {
               setTitle(e.target.value);
               if (warning && e.target.value.trim()) {
